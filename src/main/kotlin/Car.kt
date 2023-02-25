@@ -1,6 +1,7 @@
 class Car (
-    val model: String,
-    val color: String,
+    val name: String,
     val number: String,
-    val owner: String
+    val colorName: String,
+    val status: CarStatus,
+    val owner: Owner,
 )

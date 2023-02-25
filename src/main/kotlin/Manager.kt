@@ -1,4 +1,4 @@
-object Manager {
+interface Manager {
     fun whereParking(){
 
     }
