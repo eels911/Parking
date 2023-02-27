@@ -13,6 +13,8 @@ interface Manager {
 
     fun getInfoByPlace(place: Int): Boolean
 
+    fun getInfoByPark(): Boolean
+
     val canParkCar: Boolean
 }
 
@@ -71,6 +73,23 @@ class ManagerImpl(override val parking: Parking) : Manager {
             false
         }
     }
+
+    override fun getInfoByPark():Boolean{
+        if (parking.cars.values.isNotEmpty()) {
+            parking.cars.toSortedMap().forEach {
+                if (it.value != null) {
+                    println("Место P-${it.key} Номер - ${it.value?.number}, Владелец - ${it.value?.owner?.name}")
+                } else{
+                    println("Место P-${it.key} - свободно")
+                }
+            }
+        }
+        return true
+    }
+
+//    override fun getInfoByPark(parking: Parking): Boolean {
+//        val park = parking.cars.values
+//    }
 
     private fun printAllParkingInfo() {
         println("--- --- --- ---")

@@ -17,6 +17,7 @@ sealed class Command(open val command:String) {
                 $RETURN - забрать автомобиль с парковки
                 $INFO_BY_CAR - получить место авто на парковке
                 $INFO_BY_PLACE - получить инфу о машине по парковочному месту
+                $PARK_STATS - статистика свободных мест
             """.trimIndent())
         }
     }
@@ -74,6 +75,14 @@ sealed class Command(open val command:String) {
         }
     }
 
+    class ParkStats(override val command: String = PARK_STATS): Command(command){
+        override fun print() {
+       println("статистика")
+        }
+
+
+    }
+
 
     private companion object {
         const val START = "/start"
@@ -82,5 +91,6 @@ sealed class Command(open val command:String) {
         const val RETURN = "/return"
         const val INFO_BY_CAR = "/park_info_by_car"
         const val INFO_BY_PLACE = "/park_info_by_place"
+        const val PARK_STATS = "/show_park"
     }
 }

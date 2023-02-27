@@ -12,6 +12,7 @@ fun main() {
     val pickUp = Command.PickUp()
     val infoByCar = Command.InfoByCar()
     val infoByPlace = Command.InfoByPlace()
+    val showPark = Command.ParkStats()
 
     start.print()
     while (true) {
@@ -70,7 +71,10 @@ fun main() {
                             }
                         }
                     }
-
+                    showPark.command->{
+                        showPark.print()
+                                manager.getInfoByPark()
+                        }
                     else -> {
                         println("Некорректная команда")
                     }
